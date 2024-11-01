@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles/style.css">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <!--File Status Pill Component-->
+        <div id="statusPill">
+            <img style="margin-top: -10px; margin-left: -5px;" src="res/tick.png" height="35">
+            <p id="statusName">File Saved</p>
+        </div>
+        <!--Task Edit Pill Component-->
+        <div id="taskEditPill">
+            <h3 id="taskEditName">Edit</h3>
+            <input placeholder="Made some mistake? Edit it" type="text" id="editTaskText">
+            <div id="taskEditDone" class="taskEditControls">
+                <img src="res/check.png" height="30">
+            </div>
+            <div id="taskEditCancel" class="taskEditControls">
+                <img src="res/close.png" height="30">
+            </div>
+        </div>
+        <!--Top Bar for windows dragging-->
+        <div id="topBar"></div>
+        <!--Back button and app logo-->
+            <div id="logo-backBtn-group" class="goHomeBtn">
+                <img id="homeLogo" src="res/back-btn.png" height="28">
+                <h1 id="logoText" style="font-family: 'Inter','sans-serif'; font-weight: 200;"><strong style="font-family: 'Inter','sans-serif';">Elemental</strong> Notes</h1>
+            </div>
+        <!--Mode Selector - Notes,Tasks and Settings Page-->
+            <div id="modeSelector">
+                <h1 id="recentButton" style="margin-left: 15px; color: rgb(0, 0, 0); font-size: 1.7em; font-family: 'Inter','sans-serif'; opacity: 1;
+                scale: 1;">Notes</h1>
+                <h1 id="tasksButton" style="margin-left: 15px; color: rgb(0, 0, 0); font-size: 1.7em; font-family: 'Inter','sans-serif'; opacity: 0.3;
+                scale: 0.85;">Tasks</h1>
+                <h1 id="settingsButton" style="margin-left: 15px; color: rgb(0, 0, 0); font-size: 1.7em; font-family: 'Inter','sans-serif'; opacity: 0.3;
+                scale: 0.85;">Settings</h1>
+                <img style="position: absolute; right: 240px;" class="saveBtn" src="res/save.png" height="22" width="22">
+                <div id="saveTools">
+                    <div id="newNote">
+                        <img src="res/add.png" height="25">
+                    </div>
+                </div>
+            </div>
+        <!--Text Formatting Tools-->
+            <div id="menuBar">   
+                    <li class="tooltip"><img src="res/Bold.png" id="bold" height="25">
+                        <span class="tooltiptext">Bold</span></li>
+                    <li class="tooltip"><img class="tooltip" src="res/italics.png" height="25" id="italics">
+                        <span class="tooltiptext">Italics</span></li>
+                    <li class="tooltip"><img class="heading" src="res/h1.png" height="25" id="heading">
+                        <span class="tooltiptext">Heading</span></li>
+                    <li class="tooltip"><img id="strikethrough" height="25" src="res/strikethrough.png">
+                        <span class="tooltiptext">Strikethrough</span></li>
+                    <li class="tooltip"><img id="unlist" height="25" src="res/unordered.png">
+                        <span class="tooltiptext">List</span></li>
+
+                    <li class="tooltip"><img id="ordList" height="25" src="res/list-ord.png">
+                        <span class="tooltiptext">Ordered List</span></li>
+
+                    <li class="tooltip"><img id="quote" height="25" src="res/quote.png">
+                        <span class="tooltiptext">Blockquote</span></li>
+                    <div id="divider"></div>
+                <div id="insertComponents">
+                    <li class="tooltip"><img id="checkBox" height="25" src="res/checklist.png">
+                        <span class="tooltiptext">Checkbox</span></li>
+                    <li class="tooltip"><img id="code" height="25" src="res/code.png">
+                        <span class="tooltiptext">Code Block</span></li>
+                    <li class="tooltip"><img id="table" height="25" src="res/table.png">
+                        <span class="tooltiptext">Table</span></li>
+                    <li class="tooltip"><img id="image" height="25" src="res/image.png">
+                        <span class="tooltiptext">Image</span></li>
+                </div>
+            </div>
+        <!--Markdown Editor components-->
+            <div id="editor">
+                <textarea placeholder="Type Markdown Here" id="markdown-content"></textarea>
+                <div style="display: flex; align-items: center;">
+                <div id="resizePill"></div>
+            </div>
+                <div id="recentNotes">
+                </div>
+            <div id="general">
+                <h1 style="user-select: none;">Settings Features will come soon!<br>App is still under development🛠️</h1>
+            </div>
+            <div id="html-preview">
+                <div id="emptyIllu">
+                    <img style="opacity: 0.8; margin-top: 40px;" height="90" src="res/juicy-sleeping-cat.png">
+                    <h3 style="font-weight: 600; font-size: 1.1em;
+                    margin-top: 80px; color: black;">What's on your mind? 
+                    <br>Start typin !</h3>
+                </div>
+            </div>
+            <div id="checklist">
+                    <div id="checklistOverview">
+                        <div id="checklistAdd">
+                            <input type="text" placeholder="Enter Task" id="tasksInput">
+                            <div id="addBtn">
+                                <img height="30" src="res/add.png">
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="sortable">
+                    </ul>
+                        <div id="emptyView">
+                            <center><img src="res/juicy-sleeping-cat.png" height="90" style="opacity: 0.8;"></center>
+                            <h3 style="font-size: 1.25em; text-align: start;font-family: 'Poppins','sans-serif'; font-weight: 600; user-select: none; color: black;">Nothin Here <br>Tap the <strong>+</strong> button to add a new task</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--Backend Scripts-->
+            <script src="index.js"></script>
+            <script src="tasksection.js"></script>
+            <script src="filesaving.js"></script>
+    </body>
+</html>

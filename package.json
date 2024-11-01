@@ -1,0 +1,31 @@
+{
+  "name": "Elemental Notes",
+  "version": "1.1.0",
+  "description": "A notes and tasks app that support markdown",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harryfrzz/Markdown-Notes.git"
+  },
+  "author": "Elemental",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harryfrzz/Markdown-Notes/issues"
+  },
+  "homepage": "https://github.com/harryfrzz/Markdown-Notes#readme",
+  "devDependencies": {
+    "electron": "^32.1.2"
+  },
+  "dependencies": {
+    "@lottiefiles/dotlottie-web": "^0.34.0",
+    "dom-to-image": "^2.6.0",
+    "dompurify": "^3.1.7",
+    "highlightjs": "^9.16.2",
+    "html2canvas": "^1.4.1",
+    "jsdom": "^25.0.1",
+    "marked": "^14.1.2"
+  }
+}

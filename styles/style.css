@@ -1,0 +1,742 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    
+    font-family: 'Poppins','sans-serif';
+}
+body{
+    padding: 0;
+    margin: 65px 50px 20px 30px;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+img{
+    filter: brightness(0.85);
+    user-select: none;
+    -webkit-user-drag: none;
+}
+#homeLogo{
+    display: none;
+}
+#logo-backBtn-group{
+    height: 40px; 
+    width: fit-content; 
+    margin-bottom: 35px;
+    margin-left: 6px;
+}
+#goHomeBtn{
+    margin-left: 30px;
+    display: none;
+
+}
+#topBar{
+    width: 100vw; height: 100px; position: absolute; top: 0; left: 50%; transform: translate(-50%,-50%);
+    -webkit-app-region: drag;
+}
+#menuBar{
+   
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    height: 60px;
+    /*background-color: rgb(22, 22, 39);*/
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    flex-direction: row;
+    gap: 30px;
+    animation: fade-in 0.25s;
+    height: 55px;
+    display: none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+}
+#menuBar li{
+    margin-top: 5px;
+}
+#editor{
+    display: flex;
+    gap: 15px;
+    margin: 20px;
+}
+#resizePill{
+    width: 5px; 
+    background-color: rgb(0, 0, 0); 
+    cursor: col-resize;
+    user-select: none;
+    display: none;
+    height: 100px;
+    border-radius: 20px;
+}
+#sideBar{
+    animation: fade-in 0.25s;
+    width: 80px;
+    background-color: rgb(22, 22, 39);;
+    border-radius: 10px; 
+    min-width: 80px;
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    justify-content: start;
+    align-items: center;
+}
+#sideBarItem{
+    padding: 10px;
+    transition: 0.25s ease;
+}
+#sideBarItem:hover{
+    background-color: black;
+    padding: 10px;
+    border-radius: 10px;
+}
+.saveBtn{
+    display: none;
+    padding: 15px;
+    top: 60px;
+    margin-bottom: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-right: 10px;
+}
+#newNote{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    user-select: none;
+    font-family: 'Inter','sans-serif';
+    font-weight: 200;
+    gap: 20px;
+    width: 40px;
+    height: 40px;
+    right: 60px; 
+    margin-top: 6px;
+    padding: 8px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+}
+#saveTools{
+    display: flex;
+    height: fit-content;
+    width: 100%;
+    margin-right: 15px;
+    justify-content: end;
+}
+#checklist{
+    display: none;
+    flex-direction: column;
+    font-family: 'Roboto','sans-serif';
+    color: white;
+    width: 100vw;
+    padding: 15px;
+    overflow-y: scroll;
+    height: 68vh;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 10px;
+    animation: fade-in 0.3s;
+
+}
+#checklistOverview{
+    animation: fade-in 0.3s;
+}
+#checklistAdd{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 10px 10px 10px;
+    height: 50px;
+    border-radius: 10px;
+}
+#tasksInput{
+    height: 30px;
+    width: 100%;
+    margin-right: 20px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    color: rgb(0, 0, 0);
+    overflow: hidden;
+    padding: 10px;
+    font-size: 1.1em;
+    margin-left: 10px;
+    z-index: 1;
+}
+#tasksInput::placeholder{
+    color: rgb(83, 77, 107);
+}
+
+#sortable li{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+.taskItem{
+    height: 40px;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+    display: flex;
+    font-family: 'Roboto Mono','monospace';
+    font-size: 1.15em;
+    border: 1px solid black;
+    margin-top: 18px;
+    margin-left: -22px;
+    color: black;
+    justify-content: space-between;
+    margin-right: 25px;
+    padding: 8px;
+    align-items: center;
+    color: rgb(214, 214, 214);
+    user-select: none;
+
+}
+#emptyView{
+    width: 100%; 
+    height: 100%;
+    z-index: 0; 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+    position: relative;
+    gap: 30px;
+    margin-top: -100px;
+    justify-content: center;
+    top: 0;
+}
+#taskList{
+    display: flex; flex-direction: row; width: 100%; justify-content: center;
+}
+#addBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    height: 45px;
+    z-index: 1;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 80px;
+    background-color: black;
+}
+@keyframes fade-out {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}@keyframes scale {
+    from {scale: 0.5;}
+    to {scale: 1;}
+}
+#noteContainer{
+    width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+#logoText{
+    user-select: none;
+    margin-top: -10px; 
+    margin-left: 28px;
+    font-size: 2.5em; 
+    color: rgb(0, 0, 0); 
+    font-family: 'Inter','sans-serif';  
+}
+#modeSelector{
+    display: flex;
+    gap: 10px;
+    margin-top: -20px;
+    margin-left: 20px;
+}
+#notesButton{
+    cursor: pointer;
+    transition: 0.25s ease;
+    user-select: none;
+}
+#tasksButton{
+    transition: 0.25s ease;
+    user-select: none;
+    cursor: pointer;
+}
+
+#markdown-content{
+    display: block;
+    animation: fade-in 0.25s;
+    height: 65vh;
+    overflow-x: hidden;
+    width: 100vw;
+    resize: none;
+    border: none;
+    outline: none;
+    font-family: 'Roboto Mono','monospace';
+    font-size: 1.25em;
+    color: black;
+    padding: 25px 15px 15px 15px;
+    display: none;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+
+}
+#markdown-content::placeholder{
+    color: rgb(83, 77, 107);
+}
+
+#html-preview{
+    animation: fade-in 0.25s;
+    overflow-wrap: break-word;
+    white-space: normal;
+    height: 65vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100vw;
+    display: none;
+    font-family: 'Inter','sans-serif';
+    font-size: 1.3em;
+    border-radius: 10px;
+    padding: 0px 15px 40px 15px;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+}
+@media (min-height: 1000px) {
+    #markdown-content,
+    #html-preview {
+        height: 72vh;
+    }
+    #checklist{
+        height: 72vh;
+    }
+    #recentNotes{
+        height: 100vh;
+    }
+}
+#general{
+    width: 100vw;
+    height: 68vh;
+    padding: 15px;
+    animation: fade-in 0.25s;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    display: none;
+    font-size: 0.8em;
+    color: black;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+#general *{
+    font-family: 'Inter','sans-serif';
+}
+#recentButton{
+    transition: 0.25s ease;
+    user-select: none;
+    cursor: pointer;
+}
+#recentNotes{
+    width: 100vw;
+    height: 68vh; /* Default height */
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid black;
+    background-color: white;
+    display: flex;
+    animation: fade-in 0.25s;
+    gap: 30px;
+    justify-content: start;
+    align-content: start;
+    align-items: start;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+@media (min-height: 1000px) {
+    #recentNotes{
+        height: 72vh; 
+    }
+    #general{
+        height: 72vh; 
+    }
+}
+#noteElement{
+    width: 300px;
+    height: 200px;
+    background-color: #ffff;
+}
+#general p{
+    font-size: 1.1em;
+}
+#statusName{
+    color: white; text-align: center; font-family: 'Poppins','sans-serif'; font-weight: 500; margin-top: -4px;
+    animation: fade-in 1s;
+}
+#taskEditName{
+    animation: fade-in 1s;
+    color: white; 
+    font-size: 1.3em;
+    margin-left: 20px; 
+    font-weight: 500;
+}
+#taskEditPill{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    opacity: 0;
+    gap: 30px;
+    z-index: 1;
+    width: 500px;
+    scale: 0.85;
+    height: 80px;
+    background-color: #000000;
+    position: absolute;
+    padding: 15px;
+    border-radius: 60px;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%,-50%);
+    margin-top: 100px;
+}
+.taskEditControls{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background-color: rgba(54, 53, 112, 0.397); 
+    padding: 5px; 
+    width: 35px;height: 35px; 
+    border-radius: 100%;
+}
+#deleteDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 10px;
+    border-radius: 100%;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
+}
+#editDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 10px;
+    border-radius: 100%;
+    width: 25px;
+    z-index: 1;
+    height: 25px;
+}
+#toolsDiv{
+    display: flex;
+    gap: 20px;
+}
+#fileName{
+    width: fit-content;
+    height: 25px;
+    padding: 15px;
+    margin-top: 5px;
+    font-family: 'Roboto Mono','monospace';
+    font-size: 1.2em;
+    text-align: end;
+    background-color: transparent;
+    outline: none;
+    color: rgba(177, 185, 255, 0.829);
+    border: none;
+}
+#responseDiv{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: aliceblue;
+}
+#editTaskText{
+    width: 250px;
+    height: 30px;
+    color: white;
+    font-size: 1em;
+    border-bottom: 1px solid white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background-color: transparent;
+}
+
+#statusPill{
+    display: none;
+    opacity: 0;
+    flex-direction: row;
+    gap: 10px;
+    width: 200px;
+    height: 15px;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: #000000;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 90px;
+}
+#settingsButton{
+    user-select: none;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+#emptyIllu{
+    display: flex; 
+    height: 100%; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: row; 
+    gap: 20px;
+}
+#emptyIlluFiles{
+    display: flex; 
+    width: 100%;
+    height: 100%;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: row; 
+    gap: 20px;
+}
+#insertComponents{
+    display: flex;
+    height: fit-content;
+    gap: 30px;
+    border-radius: 10px;
+    padding: 3px 10px 3px 10px;
+}
+#divider{
+    height: 20px;
+    margin-left: 15px;
+    border: 1px solid black;
+}
+.button-container-1 {
+    position: absolute;
+    top: 180px;
+    right: 5px;
+    display: flex;
+    gap: 10px;
+}
+.button-container {
+    position: absolute;
+    top: 180px;
+    right: 50px;
+    display: flex;
+    gap: 10px;
+}
+#rendered-content{
+    width: 200px;
+    position: relative;
+    max-height: 160px;
+    height: 160px;
+    margin-top: -15px;
+    overflow: hidden;
+    user-select: none;
+}
+
+/*Components Customization*/
+pre{
+    width: 100%;
+    background-color: rgb(165, 165, 165);
+    height: fit-content;
+    border-radius: 10px;
+    padding: 10px;
+    scale: 0.9;
+}
+code{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+    background-color: rgb(165, 165, 165);
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.8em;
+}
+table{
+    margin-top: 20px;
+}
+thead{
+    background-color: hsla(0, 0%, 100%, .15);
+}
+th{
+    border: 1px solid hsl(0, 0%, 31%);
+    font-size: 0.8em;   
+    font-weight: 600;
+}
+td{
+    border: 1px solid hsl(0, 0%, 31%);
+    border-top: none;
+    padding: 8px;
+    font-size: 0.8em;
+
+}
+a{
+    color: rgb(86, 86, 255);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+
+/* Background color for unchecked state */
+input[type="checkbox"] {
+    margin-top: 10px;
+    background-color: #fff;
+    margin-top: 5px;
+}
+
+/* Checked state styles */
+input[type="checkbox"]:checked {
+    background-color: #7e3bd6;
+    border-color: #7e3bd6;
+}
+
+/* Custom checkmark using ::before */
+input[type="checkbox"]:checked::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    color: black;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 145px;
+    left: 120px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    animation: fade 0.25s;
+  }
+  
+  
+/*ScrollBar customization*/
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+::-webkit-scrollbar {
+    width: 10px;
+  }
+::-webkit-scrollbar-corner{
+    background-color: rgba(255, 255, 255, 0);
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background: rgb(88, 88, 88); 
+    border-radius: 10px;
+  }
+::-webkit-scrollbar-thumb:hover {
+    background: #4141419a;
+    cursor: default;
+
+}
+
+/*Animations*/
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes dynamicEditText {
+    from{
+        width: 0px;
+        opacity: 0;
+    }
+    to{
+        width: 500px;
+        opacity: 1;
+    }
+}
+@keyframes dynamicFileStatus {
+    from{
+        width: 0px;
+        opacity: 0;
+    }
+    to{
+        width: 200px;
+        opacity: 1;
+    }
+}
+/* Add this to your CSS file */
+.fade {
+    transition: opacity 0.5s ease;
+}
+
+/* Add this CSS to handle the note item rendering */
+.note {
+    position: relative;
+    max-height: 150px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    color: rgb(170, 170, 170);
+    height: 150px;
+    font-family: 'Roboto Mono','monospace';
+    font-size: 1em;
+    background-color: black;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.note img{
+    margin-top: 15px;
+    margin-right: 5px;
+}
+#deleteBtnDiv {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex; 
+    justify-content: end;
+}
+#content {
+    background-color: #fafafa;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
