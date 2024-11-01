@@ -8,6 +8,7 @@ function createWindow () {
   const win = new BrowserWindow({
     width: 1600,
     height: 850,
+    icon: path.join(__dirname, 'res/logo.png'),
     titleBarStyle: 'hidden',
     titleBarOverlay: {
         height: 40,
